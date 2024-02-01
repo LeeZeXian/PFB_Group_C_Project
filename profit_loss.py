@@ -22,6 +22,8 @@ def test_column_decreasing(data, column_index):
       return False
   return True
 
+# If data in column is fluctuating, find the difference between the next data
+# This ignore whether the difference between the two data is negative or positive
 def find_differences(data, column_index):
   differences = [] #Change into list
 
@@ -30,7 +32,7 @@ def find_differences(data, column_index):
     if difference != 0:
       differences.append((data[i][0], difference))  
   
-  ## Sort base on value
+  # Sort base on value
   sorted_differences = sorted(differences, key=MyKeyFn_One, reverse=True)
   
   # Check if the column is increasing
@@ -48,7 +50,7 @@ def find_differences(data, column_index):
   
   elif test_column_decreasing(data, column_index):
     
-# Find the day and amount of the highest decreasing column
+    # Find the day and amount of the highest decreasing column
     print("each day is lower than previous day")
     text1= ("each day is lower than previous day")
     
@@ -86,8 +88,8 @@ def check_data_for_difference(data, column_index):
     # Find all differences
     differences, text1, text2, text3 = find_differences(data, column_index)
 
-    positive_list = [] #Change to list
-    sorted_positive = [] #Change to list
+    positive_list = [] #Convert to list
+    sorted_positive = [] #Convert to list
     for i in range(1, len(differences)):
         if differences[i][column_index] > 0:
             print((differences[i]))
@@ -95,9 +97,10 @@ def check_data_for_difference(data, column_index):
             
     ## Sort base on Key[0], which is 'Day'
     sorted_positive = sorted(positive_list, key=MyKeyFn_Zero, reverse=False)
-    
-    negative_list = [] #Change to list
-    sorted_negative = [] #Change to list
+#Key function will take first number on positive or negative list, then do reverse sorting. Positive list is arranged via biggest to smallest day, reverse function reverses this.    
+
+    negative_list = [] #Convert to list
+    sorted_negative = [] #Convert to list
     for i in range(1, len(differences)):
         if differences[i][column_index] < 0:
             print((differences[i]))
@@ -109,6 +112,7 @@ def check_data_for_difference(data, column_index):
     return sorted_positive,  sorted_negative,  text1, text2, text3
 
 def profit_and_loss(data):
+    #Extract the colum index (replace with actual index)
     column_index = 1  
     
     # Check data list for increasing, descresing or fluctuating and find the difference
@@ -122,7 +126,7 @@ def profit_and_loss(data):
         elif text3 == 1:
             outfile.write("[Net Profit  Deficit]: Cash on %s \n" % (text1))
             outfile.write("[Highest Net Profit  Deficit]: Day: %s, Amount: $%s \n" % (text2[0], abs(text2[1])))
-        elif text3 == 2:
+        elif text3 == 2:      
             if sorted_positive:
                for day, difference in sorted_positive:
                    outfile.write("[Net Profit Surplus] Day %s Amount: $%s \n" % (day, abs(difference)))

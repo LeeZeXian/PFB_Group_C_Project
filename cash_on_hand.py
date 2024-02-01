@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 ## Function to return key, get csv data. grab the list of 1st or second item
 def MyKeyFn_One(a):
     return a[1] #Data (Amt)
@@ -29,12 +28,11 @@ def find_differences(data, column_index):
   differences = []
 
   for i in range(1, len(data)):
-    #print(data[i], data[i][1])
     difference = float(data[i][column_index]) - float(data[i - 1][column_index])
     if difference != 0:
       differences.append((data[i][0], difference))  
      
-  ## Sort base on value
+  # Sort base on value
   sorted_differences = sorted(differences, key=MyKeyFn_One, reverse=True)
 
   # Check if the column is increasing
@@ -51,8 +49,8 @@ def find_differences(data, column_index):
     text3 = 0
   
   elif test_column_decreasing(data, column_index):
+    
     # Find the day and amount of the highest decreasing column
-   
     print("each day is lower than previous day")
     text1= ("each day is lower than previous day")
     
@@ -90,8 +88,8 @@ def check_data_for_difference(data, column_index):
     # Find all differences
     differences, text1, text2, text3 = find_differences(data, column_index)
     
-    positive_list = [] #convert to list
-    sorted_positive = [] #convert to list
+    positive_list = [] #Convert to list
+    sorted_positive = [] #Convert to list
     for i in range(1, len(differences)):
         if differences[i][column_index] > 0:
             print((differences[i]))
@@ -99,10 +97,10 @@ def check_data_for_difference(data, column_index):
             
     ## Sort base on Key[0], which is 'Day'
     sorted_positive = sorted(positive_list, key=MyKeyFn_Zero, reverse=False)
-#key function will take first number on pos or neg list, then do reverse sorting. Pos list is arranged via biggest to smallest day, reverse function reverses taht.
+#Key function will take first number on positive or negative list, then do reverse sorting. Positive list is arranged via biggest to smallest day, reverse function reverses this.    
 
-    negative_list = [] #convert to list
-    sorted_negative = [] #convert to list
+    negative_list = [] #Convert to list
+    sorted_negative = [] #Convert to list
     for i in range(1, len(differences)):
         if differences[i][column_index] < 0:
             print((differences[i]))
@@ -120,7 +118,6 @@ def cash_on_hand(data):
     # Check data list for increasing, descresing or fluctuating and find the difference
     sorted_positive,  sorted_negative, text1, text2, text3 = check_data_for_difference(data, column_index)
    
-
     # Write into Summary.txt file
     with open('summaryreport.txt', 'a') as outfile:
         if text3 == 0 :

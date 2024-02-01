@@ -89,7 +89,7 @@ def check_data_for_difference(data, column_index):
     
     positive_list = [] #Convert to list
     sorted_positive = [] #Convert to list
-    for i in range(1, len(differences)):
+    for i in range(0, len(differences)):
         if differences[i][column_index] > 0:
             print((differences[i]))
             positive_list.append(differences[i])
@@ -100,7 +100,7 @@ def check_data_for_difference(data, column_index):
 
     negative_list = [] #Convert to list
     sorted_negative = [] #Convert to list
-    for i in range(1, len(differences)):
+    for i in range(0, len(differences)):
         if differences[i][column_index] < 0:
             print((differences[i]))
             negative_list.append(differences[i])

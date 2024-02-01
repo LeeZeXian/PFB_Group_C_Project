@@ -129,16 +129,16 @@ def cash_on_hand(data):
         elif text3 == 2:
             if sorted_positive:
                 for day, difference in sorted_positive:
-                    outfile.write("[Cash Surplus] Day %s Amount: $%s \n" % (day, abs(difference)))
+                    outfile.write("[Cash Surplus] Day: %s Amount: $%s \n" % (day, abs(difference)))
                 positive_top = sorted(sorted_positive, key=MyKeyFn_One, reverse=True)
-                outfile.write("[Highest Cash Surplus] Day %s Amount: $%s \n" % (positive_top[0][0], positive_top[0][1]))
-                outfile.write("[2nd Highest Cash Surplus] Day %s Amount: $%s \n" % (positive_top[1][0], positive_top[1][1]))
-                outfile.write("[3rd Highest Cash Surplus] Day %s Amount: $%s \n" % (positive_top[2][0], positive_top[2][1]))
+                outfile.write("[Highest Cash Surplus] Day: %s Amount: $%s \n" % (positive_top[0][0], positive_top[0][1]))
+                outfile.write("[2nd Highest Cash Surplus] Day: %s Amount: $%s \n" % (positive_top[1][0], positive_top[1][1]))
+                outfile.write("[3rd Highest Cash Surplus] Day: %s Amount: $%s \n" % (positive_top[2][0], positive_top[2][1]))
 
             if sorted_negative:
                 for day, difference in sorted_negative:
-                    outfile.write("[Cash Deficit] Day %s Amount: $%s \n" % (day, abs(difference)))
+                    outfile.write("[Cash Deficit] Day: %s Amount: $%s \n" % (day, abs(difference)))
                 negative_top = sorted(sorted_negative, key=MyKeyFn_One, reverse=True)
-                outfile.write("[Highest Cash Deficit] Day %s Amount: $%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
-                outfile.write("[2nd Highest Cash Deficit] Day %s Amount: $%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
-                outfile.write("[3rd Highest Cash Deficit] Day %s Amount: $%s \n" % (negative_top[2][0], abs(negative_top[2][1])))
+                outfile.write("[Highest Cash Deficit] Day: %s Amount: $%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
+                outfile.write("[2nd Highest Cash Deficit] Day: %s Amount: $%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
+                outfile.write("[3rd Highest Cash Deficit] Day: %s Amount: $%s \n" % (negative_top[2][0], abs(negative_top[2][1])))

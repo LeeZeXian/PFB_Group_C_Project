@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8
 
 
 def check_expenses(data):
@@ -8,7 +8,7 @@ def check_expenses(data):
 
 def find_largest_number(data):
     largest_number = float('-inf') 
-    largest_name = []  
+    largest_name = []  #Convert to list
 
     for index, number in enumerate(data):
         if number[1] > largest_number:

@@ -1,4 +1,4 @@
-  # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 ## Function to return key
 def MyKeyFn_One(a):
@@ -9,8 +9,6 @@ def MyKeyFn_Zero(a):
     return a[0]
 
 # If data in column is fluctuating, find the difference between the next data
-# This ignore whether the difference between the two data is negative or positive
-
 def test_column_increasing(data, column_index):
   for i in range(1, len(data)):
     if data[i][column_index] <= data[i - 1][column_index]:
@@ -25,10 +23,9 @@ def test_column_decreasing(data, column_index):
   return True
 
 def find_differences(data, column_index):
-  differences = []
+  differences = [] #Change into list
 
   for i in range(1, len(data)):
-    #print(data[i], data[i][1])
     difference = float(data[i][column_index]) - float(data[i - 1][column_index])
     if difference != 0:
       differences.append((data[i][0], difference))  
@@ -144,4 +141,3 @@ def profit_and_loss(data):
                outfile.write("[Highest Net Profit Deficit] Day %s Amount: $%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
                outfile.write("[2nd Highest Net Profit Deficit] Day %s Amount: $%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
                outfile.write("[3rd Highest Net Profit Deficit] Day %s Amount: $%s \n" % (negative_top[2][0], abs(negative_top[2][1])))
- 

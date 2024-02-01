@@ -41,7 +41,7 @@ def find_differences(data, column_index):
     print("each day is higher than previous day")
     text1= ("each day is higher than previous day")
   
-    print(f"{sorted_differences[1][0]} , amount of ${sorted_differences[1][1]}")
+    print(f"{sorted_differences[1][0]} , amount of ${sorted_differences[1][1]}") #[1][0] Day, Amt
     text2 = (sorted_differences[0][0] , sorted_differences[0][1])
     
     text3 = 0
@@ -86,19 +86,18 @@ def check_data_for_difference(data, column_index):
     # Find all differences
     differences, text1, text2, text3 = find_differences(data, column_index)
 
-    positive_list = []
-    sorted_positive = []
+    positive_list = [] #Change to list
+    sorted_positive = [] #Change to list
     for i in range(1, len(differences)):
         if differences[i][column_index] > 0:
             print((differences[i]))
             positive_list.append(differences[i])
             
     ## Sort base on Key[0], which is 'Day'
-    #sorted_positive = sorted(positive_list, key=lambda x: (x[0]), reverse=False)
     sorted_positive = sorted(positive_list, key=MyKeyFn_Zero, reverse=False)
     
-    negative_list = []
-    sorted_negative = []
+    negative_list = [] #Change to list
+    sorted_negative = [] #Change to list
     for i in range(1, len(differences)):
         if differences[i][column_index] < 0:
             print((differences[i]))
@@ -113,10 +112,8 @@ def profit_and_loss(data):
     column_index = 1  
     
     # Check data list for increasing, descresing or fluctuating and find the difference
-    #output1, output2, output3 = check_data(data, column_index)
     sorted_positive,  sorted_negative,  text1, text2, text3 = check_data_for_difference(data, column_index)
     
-
     # Write into Summary.txt file
     with open('summaryreport.txt', 'a') as outfile:
         if text3 == 0 :

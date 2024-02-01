@@ -28,11 +28,11 @@ def main():
     data = input_file('./csv_reports/overheads.csv')
     overhead(data)
     
-    ### Find the highes/lowest or fluctuation cash surplus or deficit formation
+    ### Find the highest/lowest or fluctuating cash surplus or deficit formation
     data = input_file('./csv_reports/cash_on_hand.csv')
     cash_on_hand(data)
     
-    ### Find the highes/lowest or fluctuation profit surplus or deficit formation
+    ### Find the highest/lowest or fluctuating net profit surplus or deficit formation
     data = input_file('./csv_reports/Profits_and_Loss.csv')
     profit_and_loss(data)
 

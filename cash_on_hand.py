@@ -137,8 +137,9 @@ def cash_on_hand(data):
 
             if sorted_negative:
                 for day, difference in sorted_negative:
-                    outfile.write("[Cash Deficit] Day: %s, Amount: SGD%s \n" % (day, abs(difference)))
-                negative_top = sorted(sorted_negative, key=MyKeyFn_One, reverse=True)
-                outfile.write("[Highest Cash Deficit] Day: %s, Amount: SGD%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
-                outfile.write("[2nd Highest Cash Deficit] Day: %s, Amount: SGD%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
-                outfile.write("[3rd Highest Cash Deficit] Day: %s, Amount: SGD%s \n" % (negative_top[2][0], abs(negative_top[2][1])))
+                    outfile.write("[Cash Deficit] Day %s, Amount: $%s \n" % (day, abs(difference)))
+                negative_top = sorted(sorted_negative, key=MyKeyFn_One, reverse=False)
+                outfile.write("[Highest Cash Deficit] Day %s, Amount: $%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
+                outfile.write("[2nd Highest Cash Deficit] Day %s, Amount: $%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
+                outfile.write("[3rd Highest Cash Deficit] Day %s, Amount: $%s \n" % (negative_top[2][0], abs(negative_top[2][1])))
+ 

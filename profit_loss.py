@@ -136,9 +136,10 @@ def profit_and_loss(data):
                outfile.write("[3rd Highest Net Profit Surplus] Day: %s, Amount: SGD%s \n" % (positive_top[2][0], positive_top[2][1]))
 
             if sorted_negative:
-               for day, difference in sorted_negative:
-                   outfile.write("[Net Profit Deficit] Day: %s, Amount: SGD%s \n" % (day, abs(difference)))
-               negative_top = sorted(sorted_negative, key=MyKeyFn_One, reverse=True)
-               outfile.write("[Highest Net Profit Deficit] Day: %s, Amount: SGD%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
-               outfile.write("[2nd Highest Net Profit Deficit] Day: %s, Amount: SGD%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
-               outfile.write("[3rd Highest Net Profit Deficit] Day: %s, Amount: SGD%s \n" % (negative_top[2][0], abs(negative_top[2][1])))
+                for day, difference in sorted_negative:
+                    outfile.write("[Net Profit Deficit] Day %s, Amount: $%s \n" % (day, abs(difference)))
+                negative_top = sorted(sorted_negative, key=MyKeyFn_One, reverse=False)
+                outfile.write("[Highest Net Profit Deficit] Day %s, Amount: $%s \n" % (negative_top[0][0], abs(negative_top[0][1])))
+                outfile.write("[2nd Highest Net Profit Deficit] Day %s, Amount: $%s \n" % (negative_top[1][0], abs(negative_top[1][1])))
+                outfile.write("[3rd Highest Net Profit Deficit] Day %s, Amount: $%s \n" % (negative_top[2][0], abs(negative_top[2][1])))
+ 

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-## Function to return key
+## Function to return key, get csv data. grab the list of 1st or second item
 def MyKeyFn_One(a):
-    return a[1]
+    return a[1] #Data (Amt)
 
-## Function to return key
+## Function to return key, get csv data.
 def MyKeyFn_Zero(a):
-    return a[0]
+    return a[0] #Day 
 
-# If data in column is fluctuating, find the difference between the next data
+# Test for increasing data
 def test_column_increasing(data, column_index):
   for i in range(1, len(data)):
     if data[i][column_index] <= data[i - 1][column_index]:
@@ -70,7 +70,6 @@ def find_differences(data, column_index):
   
     text3 = 2
   return sorted_differences , text1, text2, text3
-
 
 def top_3_second_elements(list_of_lists):
     """

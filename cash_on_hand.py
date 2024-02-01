@@ -25,7 +25,7 @@ def test_column_decreasing(data, column_index):
 # If data in column is fluctuating, find the difference between the next data
 # This ignore whether the difference between the two data is negative or positive
 def find_differences(data, column_index):
-  differences = []
+  differences = [] #Change into list
 
   for i in range(1, len(data)):
     difference = float(data[i][column_index]) - float(data[i - 1][column_index])
@@ -82,7 +82,6 @@ def top_3_second_elements(list_of_lists):
 
     return positive_second_elements[:3], negative_second_elements[3:] 
     
-
 def check_data_for_difference(data, column_index):
     
     # Find all differences

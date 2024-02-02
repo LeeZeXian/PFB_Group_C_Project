@@ -25,11 +25,11 @@ def input_file(file):
 ### Main program main.py
 def main():
     ### Find the highest overhead information
-    data = input_file('./csv_reports/overheads.csv')
+    data = input_file('./csv_reports/Overheads.csv')
     overhead(data)
     
     ### Find the highest/lowest or fluctuating cash surplus or deficit formation
-    data = input_file('./csv_reports/cash_on_hand.csv')
+    data = input_file('./csv_reports/Cash_on_Hand.csv')
     cash_on_hand(data)
     
     ### Find the highest/lowest or fluctuating net profit surplus or deficit formation
